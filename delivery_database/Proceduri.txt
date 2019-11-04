@@ -1,0 +1,18 @@
+
+DELIMITER //
+CREATE OR REPLACE PROCEDURE proiect() 
+BEGIN 
+SELECT * from Proiecte where numep LIKE 'A%' and oras='Satu Mare'; 
+END //
+DELiMITER ;
+
+
+
+DELIMITER //
+CREATE PROCEDURE perechi()
+BEGIN
+Select DISTINCT least(a.idc, b.idc)  AS IDC1, greatest(a.idc,b.idc) AS IDC2
+FROM Livrari a JOIN Livrari b ON (a.idf=b.idf AND a.idp=b.idp)
+WHERE a.idc!=b.idc;
+END //
+DELIMITER ;
